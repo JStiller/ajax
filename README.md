@@ -1,14 +1,26 @@
 # ajax
 A little ajax handler
 
+Settings are required
 ```js
-jstiller.modules.ajax.getTemplate('layerTemplate', function callback(event) {
+jstiller.settings = {
+  service: {
+    frontend: '/',
+  },
+  path: {
+    templates: 'templates',
+  },
+};
+```
+
+```js
+jstiller.modules.ajax.getTemplate('layerTemplate', function callback(receivedTemplate) {
 
 });
 ```
 
 ```js
-jstiller.modules.ajax.getJSON('api.josestiller.de/articles', function callback(event) {
+jstiller.modules.ajax.getJSON('api.josestiller.de/articles', function callback(receivedArticles) {
 
 });
 ```
@@ -20,7 +32,7 @@ var data = {
   content: 'content',
 };
 
-jstiller.modules.ajax.post('api.josestiller.de/articles', data, function callback(event) {
+jstiller.modules.ajax.post('api.josestiller.de/articles', data, function callback(receivedResponse) {
 
 });
 ```
